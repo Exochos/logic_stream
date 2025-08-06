@@ -31,7 +31,7 @@ jobs:
       - name: Archive build output
         run: tar -czf build.tar.gz .next public package.json pnpm-lock.yaml next.config.js
 
-      - name: Copy build to EC2
+      - name: Copy build to instance
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.INSTANCE_HOST }}
