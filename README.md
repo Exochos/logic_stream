@@ -53,8 +53,6 @@ To test Stripe payments, use the following test card details:
 
 ## Going to Production
 
-When you're ready to deploy your SaaS application to production, follow these steps:
-
 ### Set up a production Stripe webhook
 
 1. Go to the Stripe Dashboard and create a new webhook for your production environment.
