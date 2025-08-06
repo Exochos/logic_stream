@@ -9,10 +9,10 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     env:
-      POSTGRES_URL: ${{ variable.POSTGRES_URL }}
+      POSTGRES_URL: ${{ vars.POSTGRES_URL }}
       STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
       STRIPE_WEBHOOK_SECRET: ${{ secrets.STRIPE_WEBHOOK_SECRET }}
-      BASE_URL: ${{ variable.BASE_URL }}
+      BASE_URL: ${{ vars.BASE_URL }}
       AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
 
     steps:
