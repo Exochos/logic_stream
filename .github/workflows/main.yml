@@ -1,0 +1,53 @@
+name: Build and Deploy to Instance
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build project
+        run: pnpm build
+
+      - name: Archive build output
+        run: tar -czf build.tar.gz .next public package.json pnpm-lock.yaml next.config.js
+
+      - name: Copy build to EC2
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.INSTANCE_HOST }}
+          username: ${{ secrets.INSTANCE_USER }}
+          key: ${{ secrets.INSTANCE_SSH_KEY }}
+          source: "build.tar.gz"
+          target: "~/logicstream"
+
+      - name: Remote extract and start
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.INSTANCE_HOST }}
+          username: ${{ secrets.INSTANCE_USER }}
+          key: ${{ secrets.INSTANCE_SSH_KEY }}
+          script: |
+            cd ~/logicstream
+            tar -xzf build.tar.gz
+            pnpm install --frozen-lockfile
+            pm2 restart logicstream || pm2 start pnpm --name logicstream -- start
