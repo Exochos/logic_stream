@@ -58,5 +58,7 @@ jobs:
           script: |
             cd ~/logicstream
             tar -xzf build.tar.gz
-            pnpm install --frozen-lockfile
-            pm2 restart logicstream || pm2 start pnpm --name logicstream -- start
+            cd ~/logicstream
+            /root/.nvm/versions/node/v22.18.0/bin/pnpm install --frozen-lockfile
+            /root/.nvm/versions/node/v22.18.0/bin/pm2 restart logicstream || /root/.nvm/versions/node/v22.18.0/bin/pm2 start /root/.nvm/versions/node/v22.18.0/bin/pnpm --name logicstream -- start
+
