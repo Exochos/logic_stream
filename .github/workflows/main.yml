@@ -40,7 +40,7 @@ jobs:
       - name: Tar for transit
         run: tar -czf ghost-in-the-tar.gz .next package.json pnpm-lock.yaml --ignore-failed-read
 
-      - name: Upload build to instance
+      - name: Upload build to droplet
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.INSTANCE_HOST }}
@@ -48,6 +48,9 @@ jobs:
           key: ${{ secrets.INSTANCE_SSH_KEY }}
           source: "ghost-in-the-tar.gz"
           target: "/root/logicstream"
+          tar_tmp_path: ""
+          strip_components: 0
+          debug: true
 
       - name: Remote extract and start
         uses: appleboy/ssh-action@v1.0.0
