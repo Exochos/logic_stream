@@ -37,17 +37,17 @@ jobs:
       - name: Build project
         run: pnpm build
 
-      - name: Archive build output
-        run: tar -czf build.tar.gz .next package.json pnpm-lock.yaml --ignore-failed-read
+      - name: Tar for transit
+        run: tar -czf ghost-in-the-tar.gz .next package.json pnpm-lock.yaml --ignore-failed-read
 
-      - name: Copy build to instance
+      - name: Upload build to instance
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.INSTANCE_HOST }}
           username: ${{ secrets.INSTANCE_USER }}
           key: ${{ secrets.INSTANCE_SSH_KEY }}
-          source: "build.tar.gz"
-          target: "~/logicstream"
+          source: "ghost-in-the-tar.gz"
+          target: "/root/logicstream"
 
       - name: Remote extract and start
         uses: appleboy/ssh-action@v1.0.0
@@ -56,9 +56,9 @@ jobs:
           username: ${{ secrets.INSTANCE_USER }}
           key: ${{ secrets.INSTANCE_SSH_KEY }}
           script: |
-            cd ~/logicstream
-            tar -xzf build.tar.gz
-            cd ~/logicstream
+            cd /root/logicstream
+            tar -xzf ghost-in-the-tar.gz
             /root/.nvm/versions/node/v22.18.0/bin/pnpm install --frozen-lockfile
-            /root/.nvm/versions/node/v22.18.0/bin/pm2 restart logicstream || /root/.nvm/versions/node/v22.18.0/bin/pm2 start /root/.nvm/versions/node/v22.18.0/bin/pnpm --name logicstream -- start
+            /root/.nvm/versions/node/v22.18.0/bin/pm2 restart logicstream || \
+              /root/.nvm/versions/node/v22.18.0/bin/pm2 start /root/.nvm/versions/node/v22.18.0/bin/pnpm --name logicstream -- start
 
