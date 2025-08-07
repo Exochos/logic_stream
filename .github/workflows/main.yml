@@ -40,7 +40,7 @@ jobs:
       - name: Tar for transit
         run: tar -czf ghost-in-the-tar.gz .next package.json pnpm-lock.yaml --ignore-failed-read
 
-      - name: Upload build to droplet
+      - name: Upload build to instance
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.INSTANCE_HOST }}
