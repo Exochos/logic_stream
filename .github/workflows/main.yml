@@ -48,6 +48,7 @@ jobs:
           key: ${{ secrets.INSTANCE_SSH_KEY }}
           source: "ghost-in-the-tar.gz"
           target: "/root/logicstream"
+          tar: false
           tar_tmp_path: ""
           strip_components: 0
           debug: true
