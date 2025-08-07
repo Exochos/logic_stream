@@ -11,7 +11,7 @@ export default function HomePage() {
             <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
               <h1 className="text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl md:text-6xl">
                 <span className="block">Let us help you build</span>
-                <span className="block text-teal-400">Your Buisness </span>
+                <span className="block text-teal-400">Your Business</span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
                 At logicstream.io, we provide a comprehensive set of web design
