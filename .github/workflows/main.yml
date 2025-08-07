@@ -47,22 +47,16 @@ jobs:
           username: ${{ secrets.INSTANCE_USER }}
           key: ${{ secrets.INSTANCE_SSH_KEY }}
           source: "ghost-in-the-tar.gz"
-          target: "/root/logicstream"
-          tar: false
-          tar_tmp_path: ""
+          target: "/root/deploy_tmp"
           strip_components: 0
           debug: true
 
-      - name: Remote extract and start
+
+      - name: Run server-side deploy script
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.INSTANCE_HOST }}
           username: ${{ secrets.INSTANCE_USER }}
           key: ${{ secrets.INSTANCE_SSH_KEY }}
-          script: |
-            cd /root/logicstream
-            tar -xzf ghost-in-the-tar.gz
-            /root/.nvm/versions/node/v22.18.0/bin/pnpm install --frozen-lockfile
-            /root/.nvm/versions/node/v22.18.0/bin/pm2 restart logicstream || \
-              /root/.nvm/versions/node/v22.18.0/bin/pm2 start /root/.nvm/versions/node/v22.18.0/bin/pnpm --name logicstream -- start
+          script: "/root/deploy/deploy_logicstream.sh"
 
