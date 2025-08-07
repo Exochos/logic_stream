@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button';
-import { ArrowRight, CreditCard, Database } from 'lucide-react';
-import { Terminal } from './terminal';
+import { Button } from "@/components/ui/button";
+import { ArrowRight, CreditCard, Database } from "lucide-react";
+import { Terminal } from "./terminal";
 
 export default function HomePage() {
   return (
@@ -10,13 +10,20 @@ export default function HomePage() {
           <div className="lg:grid lg:grid-cols-12 lg:gap-8">
             <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
               <h1 className="text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl md:text-6xl">
-                Build Your SaaS
-                <span className="block text-orange-500">Faster Than Ever</span>
+                <span className="block">Let us help you build</span>
+                <span className="block text-teal-400">Your Buisness </span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                Launch your SaaS product in record time with our powerful,
-                ready-to-use template. Packed with modern technologies and
-                essential integrations.
+                At logicstream.io, we provide a comprehensive set of web design
+                and development services to help you create a stunning online
+                presence. Our team of experts specializes in building modern,
+                responsive websites that are tailored to your unique business
+                needs. Whether you need a simple landing page or a complex web
+                application, we have the skills and expertise to bring your
+                vision to life. From design and development to hosting and
+                maintenance, we offer end-to-end solutions that ensure your
+                website is fast, secure, and user-friendly.
+                <br />
               </p>
               <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
                 <a
