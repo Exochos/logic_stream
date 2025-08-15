@@ -114,7 +114,6 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
               type="button"
               variant="outline"
               className="w-full border-2 border-sky-900 hover:border-gray-400 shadow-sm"
-              onClick={() => signIn("google")}
             >
               <Image
                 src={googleLogo}
@@ -122,21 +121,19 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
                 width={20}
                 height={20}
               />
-              Sign up with Google
+              {`${mode === "signin" ? "Sign in" : "Sign up"} with Google`}
             </Button>
             <Button
               type="button"
               variant="outline"
               className="w-full border-2 border-gray-900 hover:border-gray-400"
-              onClick={() => signIn("github")}
             >
               <Image
                 src={githubLogo}
                 alt="GitHub Icon"
                 width={20}
                 height={20}
-              />
-              Sign up with GitHub
+              />{`${mode === "signin" ? "Sign in" : "Sign up"} with GitHub`}
             </Button>
           </form>
 
