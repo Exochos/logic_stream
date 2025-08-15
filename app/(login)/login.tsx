@@ -13,6 +13,17 @@ import { signIn, signUp } from "./actions";
 import { ActionState } from "@/lib/auth/middleware";
 import logicStream from "@/lib/logicstream.json";
 import logo from "@/lib/logo.png";
+import googleLogo from "@/public/icons/google-icon-logo.svg";
+import githubLogo from "@/public/icons/github-icon-logo.svg";
+
+/**
+ * Login component for handling user sign-in and sign-up.
+ * It supports both modes and integrates with Google and GitHub for authentication.
+ *
+ * @param {Object} props - Component properties.
+ * @param {"signin" | "signup"} [props.mode="signin"] - The mode of the login form.
+ * @returns {JSX.Element} The rendered login form.
+ */
 
 export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
   const searchParams = useSearchParams();
@@ -26,12 +37,12 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-zinc-950 px-4 py-12">
-      <Card className="w-full max-w-md bg-linear-120 from-grey-100 to-sky-100 shadow-lg rounded-2xl">
+      <Card className="w-full max-w-md bg-linear-160 from-grey-50 to-sky-50 shadow-lg rounded-2xl">
         <CardHeader className="flex flex-col items-center gap-2">
           <CardTitle className="text-black-200 text-xl font-bold">
             <Image
               src={logo}
-              alt="LogicStream Logo"
+              alt={logicStream.title}
               width={100}
               height={100}
               className="rounded-full mb-4"
@@ -60,6 +71,7 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
                 defaultValue={state.email}
                 required
                 maxLength={50}
+                className="border-2 border-sky-900 hover:border-gray-400 shadow-sm"
                 placeholder="Enter your email"
               />
             </div>
@@ -77,6 +89,7 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
                 required
                 minLength={8}
                 maxLength={100}
+                className="border-2 border-sky-900 hover:border-gray-400 shadow-sm"
                 placeholder="Enter your password"
               />
             </div>
@@ -85,7 +98,7 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
               <div className="text-red-500 text-sm">{state.error}</div>
             )}
 
-            <Button type="submit" className="w-full" disabled={pending}>
+            <Button type="submit" variant="outline" className="w-full border-2 border-sky-900 hover:border-gray-400 shadow-sm" disabled={pending}>
               {pending ? (
                 <>
                   <Loader2 className="animate-spin mr-2 h-4 w-4" />
@@ -96,6 +109,34 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
               ) : (
                 "Sign up"
               )}
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full border-2 border-sky-900 hover:border-gray-400 shadow-sm"
+              onClick={() => signIn("google")}
+            >
+              <Image
+                src={googleLogo}
+                alt="Google Icon"
+                width={20}
+                height={20}
+              />
+              Sign up with Google
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full border-2 border-gray-900 hover:border-gray-400"
+              onClick={() => signIn("github")}
+            >
+              <Image
+                src={githubLogo}
+                alt="GitHub Icon"
+                width={20}
+                height={20}
+              />
+              Sign up with GitHub
             </Button>
           </form>
 
