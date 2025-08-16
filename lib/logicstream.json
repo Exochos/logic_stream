@@ -1,9 +1,40 @@
 {
-  "title": "logicstream",
-  "description": "At logicStream we are a data analytics firm specialinzg in Shortselling reports, and data analytics, you can follow along with our trades and reports on our website.",
-  "keywords": "logicstream, data analytics, shortselling, reports, web design, development",
+  "name": "Logicstream.io",
+  "legalName": "AetherSync LLC",
+  "tagline": "Short-selling intelligence, backed by data.",
   "author": "Aethersync LLC",
-  "url": "https://logicstream.io",
+  "version": "1.2.3",
+  "title": "Logicstream.io",
+  "titleShort": "Logicstream",
+  "titleTemplate": "%s | Logicstream",
+  "siteUrl": "https://logicstream.io",
+  "description": "Logicstream is a data analytics platform specializing in short-selling research, forensic signals, and SEC-native datasets. Follow our theses, dashboards, and track records.",
+  "keywords": [
+    "short selling research",
+    "forensic accounting analytics",
+    "SEC filings data",
+    "options flow signals",
+    "alternative data",
+    "market surveillance",
+    "fraud detection",
+    "stonk forensics",
+    "quant research SaaS"
+  ],
+  "twitter": "@logicstream_io",
   "ogImage": "https://logicstream.io/og-image.png",
-  "favicon": "/favicon.ico"
+  "favicon": "/favicon.ico",
+  "logo": "https://logicstream.io/logo.png",
+  "sameAs": [
+    "https://x.com/logicstream_io",
+    "https://www.linkedin.com/company/logicstream-io",
+    "https://github.com/logicstream-io"
+  ],
+  "contact": {
+    "email": "admin@logicstream.io",
+    "address": "Seattle, WA, USA"
+  },
+  "foundingDate": "2024-12-01",
+  "industry": "Financial Services. Data Analytics",
+  "productName": "Logicstream Analytics",
+  "productDescription": "Browser-based analytics for short theses: anomaly screens, filings deltas, footnote diffing, and options-flow overlays."
 }

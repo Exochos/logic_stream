@@ -1,29 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useActionState } from "react";
 import { useSearchParams } from "next/navigation";
+import logicStream from "@/lib/logicstream.json";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CircleIcon, Loader2 } from "lucide-react";
-import { signIn, signUp } from "./actions";
-import { ActionState } from "@/lib/auth/middleware";
-import logicStream from "@/lib/logicstream.json";
+
+import Image from "next/image";
 import logo from "@/lib/logo.png";
 import googleLogo from "@/public/icons/google-icon-logo.svg";
 import githubLogo from "@/public/icons/github-icon-logo.svg";
 
-/**
- * Login component for handling user sign-in and sign-up.
- * It supports both modes and integrates with Google and GitHub for authentication.
- *
- * @param {Object} props - Component properties.
- * @param {"signin" | "signup"} [props.mode="signin"] - The mode of the login form.
- * @returns {JSX.Element} The rendered login form.
- */
+import { signIn, signUp } from "./actions";
+import { ActionState } from "@/lib/auth/middleware";
+
 
 export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
   const searchParams = useSearchParams();
@@ -36,8 +31,8 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
   );
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-zinc-950 px-4 py-12">
-      <Card className="w-full max-w-md bg-linear-160 from-grey-50 to-sky-50 shadow-lg rounded-2xl">
+    <div className="min-h-screen flex items-center justify-center bg-zinc-950 px-4 py-6">
+      <Card className="w-full max-w-md bg-linear-160 from-grey-50 to-sky-50 shadow-lg rounded-xl">
         <CardHeader className="flex flex-col items-center gap-2">
           <CardTitle className="text-black-200 text-xl font-bold">
             <Image
@@ -48,7 +43,7 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
               className="rounded-full mb-4"
             />
           </CardTitle>
-          <h2 className="text-lg text-gray-900 font-medium">
+          <h2 className="text-lg text-gray-900 font-bold">
             {mode === "signin"
               ? "Sign in to your account"
               : "Create your account"}
@@ -62,7 +57,7 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
             <input type="hidden" name="inviteId" value={inviteId || ""} />
 
             <div>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="mb-0.5">Email</Label>
               <Input
                 id="email"
                 name="email"
@@ -71,13 +66,13 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
                 defaultValue={state.email}
                 required
                 maxLength={50}
-                className="border-2 border-sky-900 hover:border-gray-400 shadow-sm"
+                className="border-1 border-grey-900 hover:border-gray-400 shadow-sm"
                 placeholder="Enter your email"
               />
             </div>
 
             <div>
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="mb-0.5">Password</Label>
               <Input
                 id="password"
                 name="password"
@@ -89,7 +84,7 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
                 required
                 minLength={8}
                 maxLength={100}
-                className="border-2 border-sky-900 hover:border-gray-400 shadow-sm"
+                className="border-1 border-grey-900 hover:border-gray-400 shadow-sm"
                 placeholder="Enter your password"
               />
             </div>
@@ -98,7 +93,7 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
               <div className="text-red-500 text-sm">{state.error}</div>
             )}
 
-            <Button type="submit" variant="outline" className="w-full border-2 border-sky-900 hover:border-gray-400 shadow-sm" disabled={pending}>
+            <Button type="submit" variant="outline" className="w-full border-2 border-sky-900 hover:border-gray-400 shadow-sm bg-blue-200" disabled={pending}>
               {pending ? (
                 <>
                   <Loader2 className="animate-spin mr-2 h-4 w-4" />
@@ -113,7 +108,7 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
             <Button
               type="button"
               variant="outline"
-              className="w-full border-2 border-sky-900 hover:border-gray-400 shadow-sm"
+              className="w-full border-1 border-sky-900 hover:border-gray-400 shadow-sm"
             >
               <Image
                 src={googleLogo}
@@ -126,7 +121,7 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
             <Button
               type="button"
               variant="outline"
-              className="w-full border-2 border-gray-900 hover:border-gray-400"
+              className="w-full border-1 border-gray-900 hover:border-gray-400"
             >
               <Image
                 src={githubLogo}

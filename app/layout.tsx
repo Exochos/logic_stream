@@ -3,36 +3,24 @@ import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import { getUser, getTeamForUser } from "@/lib/db/queries";
 import { SWRConfig } from "swr";
+import logicstream from "@/lib/logicstream.json";
 
 export const metadata: Metadata = {
-  title: "Logicstream.io",
-  authors: [{ name: "Logicstream.io Team", url: "https://logicstream.io" }],
-  keywords: [
-    "Web Development",
-    "Next.js",
-    "Postgres",
-    "Stripe",
-    "Logicstream",
-    "Web App",
-  ],
-  description:
-    "A modern web application built with Next.js, Drizzle ORM, and Stripe.",
+  title: logicstream.titleShort || logicstream.title,
+  description: logicstream.description,
+  keywords: logicstream.keywords,
+  authors: [{ name: logicstream.author }],
+  creator: logicstream.author,
   openGraph: {
-    title: "Logicstream.io",
-    description:
-      "A modern web application built with Next.js, Drizzle ORM, and Stripe.",
-    url: "https://logicstream.io",
-    siteName: "Logicstream.io",
-    images: [
-      {
-        url: "https://logicstream.io/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Logicstream.io Open Graph Image",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
+    title: logicstream.title,
+    description: logicstream.description,
+    url: logicstream.siteUrl,
+    images: [logicstream.ogImage],
+  },
+  icons: {
+    icon: logicstream.favicon,
+    shortcut: logicstream.favicon,
+    apple: logicstream.favicon,
   },
 };
 
