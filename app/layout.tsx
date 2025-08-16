@@ -31,23 +31,11 @@ export const viewport: Viewport = {
 
 const manrope = Manrope({ subsets: ["latin"] });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`bg-gray-50 dark:bg-gray-950 text-black dark:text-white ${manrope.className}`}
-    >
+    <html lang="en" className={`bg-black dark:bg-gray-950 text-black dark:text-white ${manrope.className}`}>
       <head>
-        {/* Load gtag.js first, after hydration */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-Y483K4ZEBE"
-          strategy="afterInteractive"
-        />
-        {/* Then define dataLayer and init gtag */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-Y483K4ZEBE" strategy="afterInteractive" />
         <Script id="gtag-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -57,7 +45,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="min-h-[100dvh]">
+      <body className="min-h-[100dvh] bg-black dark:bg-gray-950 text-black dark:text-white">
         <SWRConfig
           value={{
             fallback: {

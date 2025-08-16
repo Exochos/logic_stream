@@ -1,32 +1,30 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { Copy, Check } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Copy, Check } from "lucide-react";
 
 export function Terminal() {
   const [terminalStep, setTerminalStep] = useState(0);
   const [copied, setCopied] = useState(false);
   const terminalSteps = [
-    'git clone https://github.com/nextjs/saas-starter',
-    'pnpm install',
-    'pnpm db:setup',
-    'pnpm db:migrate',
-    'pnpm db:seed',
-    'pnpm dev 🎉',
+    "Welcome to Logicstream.io",
+    "Initializing environment...",
+    "Fetching latest updates...",
+    "Setting up your workspace...",
+    "Installing dependencies...",
+    "🎉",
   ];
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTerminalStep((prev) =>
-        prev < terminalSteps.length - 1 ? prev + 1 : prev
-      );
+      setTerminalStep((prev) => (prev < terminalSteps.length - 1 ? prev + 1 : prev));
     }, 500);
 
     return () => clearTimeout(timer);
   }, [terminalStep]);
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(terminalSteps.join('\n'));
+    navigator.clipboard.writeText(terminalSteps.join("\n"));
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -45,18 +43,14 @@ export function Terminal() {
             className="text-gray-400 hover:text-white transition-colors"
             aria-label="Copy to clipboard"
           >
-            {copied ? (
-              <Check className="h-5 w-5" />
-            ) : (
-              <Copy className="h-5 w-5" />
-            )}
+            {copied ? <Check className="h-5 w-5" /> : <Copy className="h-5 w-5" />}
           </button>
         </div>
         <div className="space-y-2">
           {terminalSteps.map((step, index) => (
             <div
               key={index}
-              className={`${index > terminalStep ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+              className={`${index > terminalStep ? "opacity-0" : "opacity-100"} transition-opacity duration-300`}
             >
               <span className="text-green-400">$</span> {step}
             </div>

@@ -1,6 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+
+import logo from "@/lib/logo.png";
+import logicstream from "@/lib/logicstream.json";
+
 import { use, useState, Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { CircleIcon, Home, LogOut } from "lucide-react";
@@ -34,7 +39,7 @@ function UserMenu() {
       <>
         <Link
           href="/pricing"
-          className="text-sm font-medium text-gray-700 hover:text-gray-900"
+          className="text-sm font-medium text-fuchsia-500 hover:text-gray-900"
         >
           About Us
         </Link>
@@ -80,11 +85,10 @@ function UserMenu() {
 
 function Header() {
   return (
-    <header className="border-b border-gray-200">
+    <header className="border-b border-gray-200 bg-black dark:bg-gray-950 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center">
-          <CircleIcon className="h-6 w-6 text-teal-400" />
-          <span className="ml-2 text-xl font-semibold text-gray-900">
+        <Link href="/" className="flex items-center ml-2">
+          <span className="ml-2 text-xl font-semibold text-gray-100">
             Logicstream
           </span>
         </Link>
