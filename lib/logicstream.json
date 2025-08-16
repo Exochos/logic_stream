@@ -36,5 +36,7 @@
   "foundingDate": "2024-12-01",
   "industry": "Financial Services. Data Analytics",
   "productName": "Logicstream Analytics",
-  "productDescription": "Browser-based analytics for short theses: anomaly screens, filings deltas, footnote diffing, and options-flow overlays."
+  "productDescription": "Browser-based analytics for short theses: anomaly screens, filings deltas, footnote diffing, and options-flow overlays.",
+  "hero": "Financial Intelligence",
+  "heroDescription": "we are a data analytics platform specializing in short-selling research"
 }
