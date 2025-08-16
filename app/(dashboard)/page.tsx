@@ -21,10 +21,9 @@ export default function HomePage() {
                 {logicstream.tagline}
               </p>
               <p className="mt-4 text-gray-50">
-                Logicstream cleans and structures SEC filings at scale so you
-                don’t have to. Spot footnote shenanigans, detect accounting
-                anomalies, and overlay options flow — all in a lightning-fast
-                database designed for forensic finance.
+                Logicstream cleans and structures SEC filings at scale so you don’t have to. Spot footnote shenanigans,
+                detect accounting anomalies, and overlay options flow — all in a lightning-fast database designed for
+                forensic finance.
               </p>
 
               {/* Waitlist / email capture */}
@@ -34,10 +33,7 @@ export default function HomePage() {
                   placeholder="Enter your email"
                   className="px-4 py-2 w-full max-w-xs rounded-md border border-gray-700 bg-gray-900 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-sky-500"
                 />
-                <Button
-                  className="bg-sky-600 hover:bg-sky-500 text-white px-6"
-                  size="lg"
-                >
+                <Button className="bg-grey-50 hover:bg-sky-400 text-amber-500 px-6 border border-gray-400 rounded-md">
                   Join Waitlist <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
