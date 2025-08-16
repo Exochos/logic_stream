@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import { getUser, getTeamForUser } from "@/lib/db/queries";
 import { SWRConfig } from "swr";
+import Script from "next/script";
 import logicstream from "@/lib/logicstream.json";
 
 export const metadata: Metadata = {
@@ -38,14 +39,28 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`bg-grey dark:bg-gray-950 text-black dark:text-white ${manrope.className}`}
+      className={`bg-gray-50 dark:bg-gray-950 text-black dark:text-white ${manrope.className}`}
     >
-      <body className="min-h-[100dvh] bg-gray-50">
+      <head>
+        {/* Load gtag.js first, after hydration */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Y483K4ZEBE"
+          strategy="afterInteractive"
+        />
+        {/* Then define dataLayer and init gtag */}
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Y483K4ZEBE');
+          `}
+        </Script>
+      </head>
+      <body className="min-h-[100dvh]">
         <SWRConfig
           value={{
             fallback: {
-              // We do NOT await here
-              // Only components that read this data will suspend
               "/api/user": getUser(),
               "/api/team": getTeamForUser(),
             },
