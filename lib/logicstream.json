@@ -1,24 +1,25 @@
 {
   "name": "Logicstream.io",
   "legalName": "AetherSync LLC",
-  "tagline": "Short-selling intelligence, backed by data.",
-  "author": "Aethersync LLC",
+  "tagline": "Logicstream turns raw, chaotic data into structured, actionable insight. Our API-first platform lets developers and analysts build powerful dashboards, render beautiful charts, and move fast — without the enterprise bloat.",
+  "author": "AetherSync LLC",
   "version": "1.2.3",
   "title": "Logicstream.io",
   "titleShort": "Logicstream",
   "titleTemplate": "%s | Logicstream",
   "siteUrl": "https://logicstream.io",
-  "description": "Logicstream is a data analytics platform specializing in short-selling research, forensic signals, and SEC-native datasets. Follow our theses, dashboards, and track records.",
+  "description": "Logicstream is a modern data analytics platform built for developers, analysts, and power users. Access structured datasets via API, build interactive visualizations, and extract value from your data — all without vendor lock-in.",
   "keywords": [
-    "short selling research",
-    "forensic accounting analytics",
-    "SEC filings data",
-    "options flow signals",
-    "alternative data",
-    "market surveillance",
-    "fraud detection",
-    "stonk forensics",
-    "quant research SaaS"
+    "analytics API",
+    "custom dashboards",
+    "developer tools",
+    "data visualization",
+    "interactive charts",
+    "API-first analytics",
+    "data infrastructure",
+    "modern BI",
+    "crypto analytics",
+    "quant tooling"
   ],
   "twitter": "@logicstream_io",
   "ogImage": "https://logicstream.io/og-image.png",
@@ -34,9 +35,9 @@
     "address": "Seattle, WA, USA"
   },
   "foundingDate": "2024-12-01",
-  "industry": "Financial Services. Data Analytics",
-  "productName": "Logicstream Analytics",
-  "productDescription": "Browser-based analytics for short theses: anomaly screens, filings deltas, footnote diffing, and options-flow overlays.",
-  "hero": "Financial Intelligence",
-  "heroDescription": "we are a data analytics platform specializing in short-selling research"
+  "industry": "Data Infrastructure, Web3 Analytics, SaaS",
+  "productName": "Logicstream Analytics API",
+  "productDescription": "A modern analytics stack for developers and teams. Access high-fidelity data, query through our APIs, and build stunning dashboards with zero friction.",
+  "hero": "Developer-First Analytics",
+  "heroDescription": "Ship insights, not spreadsheets."
 }

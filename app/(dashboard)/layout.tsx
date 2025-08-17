@@ -1,10 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-
-import logo from "@/lib/logo.png";
 import logicstream from "@/lib/logicstream.json";
+import { Microchip, ChevronDown } from "lucide-react";
 
 import { use, useState, Suspense } from "react";
 import { Button } from "@/components/ui/button";
@@ -37,14 +35,21 @@ function UserMenu() {
   if (!user) {
     return (
       <>
-        <Link
-          href="/pricing"
-          className="text-sm font-medium text-fuchsia-500 hover:text-gray-900"
-        >
-          About Us
+        <Link href="/about" className="text-sm font-medium text-amber-500 hover:text-gray-900 inline-flex items-center">
+          products
+          <ChevronDown />
         </Link>
-        <Button asChild className="rounded-full">
-          <Link href="/sign-up">Sign Up / In</Link>
+        <Link href="/about" className="text-sm font-medium text-fuchsia-500 hover:text-gray-900 inline-flex items-center">
+          About Us
+          <ChevronDown />
+        </Link>
+        <Link href="/about" className="text-sm font-medium text-sky-500 hover:text-gray-900 inline-flex items-center">
+          Pricing
+          <ChevronDown />
+        </Link>
+
+        <Button asChild className="rounded-full bg-gray-100 text-gray-900 hover:bg-gray-200">
+          <Link href="/sign-up">Login</Link>
         </Button>
       </>
     );
@@ -89,13 +94,7 @@ function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center ml-2">
           <span className="ml-2 text-xl font-semibold text-gray-100">
-            <Image
-              src={logo}
-              alt="Logicstream Logo"
-              width={32}
-              height={32}
-              className="inline-block mr-2"
-            />
+            <Microchip className="inline-block mr-2 h-6 w-6 text-amber-500 transform rotate-45" />
             Logicstream
           </span>
         </Link>
