@@ -3,6 +3,17 @@
 import Link from "next/link";
 import logicstream from "@/lib/logicstream.json";
 import { Microchip, ChevronDown } from "lucide-react";
+import { motion } from "motion/react";
+
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 
 import { use, useState, Suspense } from "react";
 import { Button } from "@/components/ui/button";
@@ -35,18 +46,104 @@ function UserMenu() {
   if (!user) {
     return (
       <>
-        <Link href="/about" className="text-sm font-medium text-amber-500 hover:text-gray-900 inline-flex items-center">
-          products
-          <ChevronDown />
-        </Link>
-        <Link href="/about" className="text-sm font-medium text-fuchsia-500 hover:text-gray-900 inline-flex items-center">
-          About Us
-          <ChevronDown />
-        </Link>
-        <Link href="/about" className="text-sm font-medium text-sky-500 hover:text-gray-900 inline-flex items-center">
-          Pricing
-          <ChevronDown />
-        </Link>
+        <NavigationMenu viewport={false} className="hidden lg:flex">
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className="bg-black text-amber-500 hover:bg-amber-600 hover:text-black px-6 py-2 rounded-md transition-colors">
+              Investor
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="grid w-[200px] gap-4 p-4 bg-white rounded-lg shadow-lg"
+              >
+                <ul className="grid w-[200px] gap-4">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">tools</Link>
+                    </NavigationMenuLink>
+                  </li>
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">signals</Link>
+                    </NavigationMenuLink>
+                  </li>
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">pricing</Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+              </motion.div>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className="bg-black text-sky-500 hover:bg-amber-500 hover:text-black px-4 py-2 rounded-md transition-colors">
+              Personal Finance 
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="grid w-[200px] gap-4 p-4 bg-white rounded-lg shadow-lg"
+              >
+                <ul className="grid w-[200px] gap-4">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">budgeting</Link>
+                    </NavigationMenuLink>
+                  </li>
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">savings</Link>
+                    </NavigationMenuLink>
+                  </li>
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">investing</Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+              </motion.div>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className="bg-black text-fuchsia-600 hover:bg-amber-500 hover:text-black px-4 py-2 rounded-md transition-colors">
+              About Us
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="grid w-[200px] gap-4 p-4 bg-white rounded-lg shadow-lg"
+              >
+                <ul className="grid w-[200px] gap-4">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">team</Link>
+                    </NavigationMenuLink>
+                  </li>
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">careers</Link>
+                    </NavigationMenuLink>
+                  </li>
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link href="#">contact</Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+              </motion.div>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenu>
 
         <Button asChild className="rounded-full bg-gray-100 text-gray-900 hover:bg-gray-200">
           <Link href="/sign-up">Login</Link>
