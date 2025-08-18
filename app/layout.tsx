@@ -4,24 +4,24 @@ import { Manrope } from "next/font/google";
 import { getUser, getTeamForUser } from "@/lib/db/queries";
 import { SWRConfig } from "swr";
 import Script from "next/script";
-import logicstream from "@/lib/logicstream.json";
+import companyinfo from "@/lib/companyInfo.json";
 
 export const metadata: Metadata = {
-  title: logicstream.titleShort || logicstream.title,
-  description: logicstream.description,
-  keywords: logicstream.keywords,
-  authors: [{ name: logicstream.author }],
-  creator: logicstream.author,
+  title: companyinfo.titleShort || companyinfo.title,
+  description: companyinfo.description,
+  keywords: companyinfo.keywords,
+  authors: [{ name: companyinfo.author }],
+  creator: companyinfo.author,
   openGraph: {
-    title: logicstream.title,
-    description: logicstream.description,
-    url: logicstream.siteUrl,
-    images: [logicstream.ogImage],
+    title: companyinfo.title,
+    description: companyinfo.description,
+    url: companyinfo.siteUrl,
+    images: [companyinfo.ogImage],
   },
   icons: {
-    icon: logicstream.favicon,
-    shortcut: logicstream.favicon,
-    apple: logicstream.favicon,
+    icon: companyinfo.favicon,
+    shortcut: companyinfo.favicon,
+    apple: companyinfo.favicon,
   },
 };
 

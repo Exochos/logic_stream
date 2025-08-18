@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useActionState } from "react";
 import { useSearchParams } from "next/navigation";
-import logicStream from "@/lib/logicstream.json";
+import logicStream from "@/lib/companyInfo.json";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

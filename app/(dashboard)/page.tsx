@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import logicstream from "@/lib/logicstream.json";
+import companyInfo from "@/lib/companyInfo.json";
 
 export default function HomePage() {
   return (
@@ -8,22 +8,22 @@ export default function HomePage() {
       <section className="py-16 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8">
-            {/* Left-hand hero content */}
+            {/* Hero content */}
             <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
               <h1 className="font-bold tracking-tight text-gray-100">
                 <span className="block text-sky-500 text-xl sm:text-2xl mb-2">
-                  {logicstream.hero}
+                  {companyInfo.hero}
                 </span>
                 <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-amber-400">
-                  {logicstream.heroDescription}
+                  {companyInfo.heroDescription}
                 </span>
               </h1>
 
               <p className="mt-6 text-lg sm:text-xl text-gray-300">
-                {logicstream.tagline}
+                {companyInfo.tagline}
               </p>
-              <p className="mt-4 text-base sm:text-lg text-gray-400 max-w-xl">
-                {logicstream.productDescription}
+              <p className="mt-4 text-base sm:text-lg text-fuchsia-400">
+                {companyInfo.productDescription}
               </p>
 
               {/* Waitlist / email capture */}
