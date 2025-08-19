@@ -1,27 +1,31 @@
-// lib/mongo.ts
 import { MongoClient, Db } from "mongodb";
-import dotenv from "dotenv";
 
-dotenv.config();
-
-if (!process.env.MONGO_DB_URL) {
+const uri = process.env.MONGO_DB_URL;
+if (!uri) {
   throw new Error("MONGO_DB_URL not set");
 }
 
-const client = new MongoClient(process.env.MONGO_DB_URL);
+let client: MongoClient | null = null;
+let db: Db | null = null;
 
-let cachedDb: Db | null = null;
+declare global {
+  var _mongoClient: MongoClient | undefined;
+}
 
 export async function getMongoDb() {
-  if (!cachedDb) {
-    await client.connect(); 
-    cachedDb = client.db("FinancialData");
-  }
-  return cachedDb;
-}
-export async function closeMongoConnection() {
-  if (cachedDb) {
-    await client.close();
-    cachedDb = null;
+  try {
+    if (db) return db;
+    if (!client) {
+      client = global._mongoClient ?? new MongoClient(uri);
+      if (process.env.NODE_ENV === "development") {
+        global._mongoClient = client;
+      }
+      await client.connect();
+    }
+    db = client.db("FinancialData");
+    return db;
+  } catch (err) {
+    console.error("MongoDB connection error:", err);
+    throw err;
   }
 }
