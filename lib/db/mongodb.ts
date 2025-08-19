@@ -16,7 +16,7 @@ export async function getMongoDb() {
   try {
     if (db) return db;
     if (!client) {
-      client = global._mongoClient ?? new MongoClient(uri);
+      client = global._mongoClient ?? new MongoClient(uri!);
       if (process.env.NODE_ENV === "development") {
         global._mongoClient = client;
       }
