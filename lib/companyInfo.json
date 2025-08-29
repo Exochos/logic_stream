@@ -39,5 +39,8 @@
   "productName": "Logicstream Analytics API",
   "productDescription": "A modern analytics stack for developers and teams. Access high-fidelity data, query through our APIs, and build stunning dashboards with zero friction.",
   "hero": "Developer-First Analytics",
-  "heroDescription": "Ship insights, not spreadsheets."
+  "heroDescription": "Ship insights, not spreadsheets.",
+  "CONTACT_BUTTON_TEXT": "Contact Us",
+  "COMPANY_LOGO_URL": "https://logicstream.io/logo.png",
+  "COMPANY_NAME": "Logicstream.io"
 }
