@@ -356,6 +356,7 @@ export default function DashboardLayout({
   children: React.ReactNode 
 }) {
   return (
+    <Suspense fallback={null}>
     <section className="flex flex-col min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
       <Header />
       <motion.main
@@ -367,5 +368,6 @@ export default function DashboardLayout({
         {children}
       </motion.main>
     </section>
+    </Suspense>
   );
 }

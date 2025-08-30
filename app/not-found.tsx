@@ -1,9 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/lib/logo.png";
+import { Suspense } from "react";
 
 export default function NotFound() {
   return (
+    <Suspense fallback={null}>
     <div className="flex items-center justify-center min-h-[100dvh]">
       <div className="max-w-md space-y-8 p-4 text-center">
         <div className="flex justify-center">
@@ -24,5 +26,6 @@ export default function NotFound() {
         </Link>
       </div>
     </div>
+    </Suspense>
   );
 }

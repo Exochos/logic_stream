@@ -1,10 +1,11 @@
-import { Suspense } from 'react';
-import { Login } from '../login';
+// app/(login)/sign-up/page.tsx (Server Component)
+import { Suspense } from "react";
+import LoginClient from "../login-client";
 
 export default function SignUpPage() {
   return (
-    <Suspense>
-      <Login mode="signup" />
+    <Suspense fallback={null}>
+      <LoginClient mode="signup" />
     </Suspense>
   );
 }

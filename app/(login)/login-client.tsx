@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useActionState } from "react";
-import { useSearchParams } from "next/navigation";
 import logicStream from "@/lib/companyInfo.json";
 
 import { Button } from "@/components/ui/button";
@@ -21,10 +20,7 @@ import { ActionState } from "@/lib/auth/middleware";
 
 
 export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
-  const searchParams = useSearchParams();
-  const redirect = searchParams.get("redirect");
-  const priceId = searchParams.get("priceId");
-  const inviteId = searchParams.get("inviteId");
+
   const [state, formAction, pending] = useActionState<ActionState, FormData>(
     mode === "signin" ? signIn : signUp,
     { error: "" }
@@ -52,10 +48,6 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
 
         <CardContent>
           <form className="space-y-6" action={formAction}>
-            <input type="hidden" name="redirect" value={redirect || ""} />
-            <input type="hidden" name="priceId" value={priceId || ""} />
-            <input type="hidden" name="inviteId" value={inviteId || ""} />
-
             <div>
               <Label htmlFor="email" className="mb-0.5">Email</Label>
               <Input
@@ -138,9 +130,7 @@ export function Login({ mode = "signin" }: { mode?: "signin" | "signup" }) {
               : "Already have an account?"}
             <br />
             <Link
-              href={`${mode === "signin" ? "/sign-up" : "/sign-in"}${
-                redirect ? `?redirect=${redirect}` : ""
-              }${priceId ? `&priceId=${priceId}` : ""}`}
+              href={mode === "signin" ? "/sign-up" : "/sign-in"}
               className="text-sky-600 hover:underline"
             >
               {mode === "signin"
