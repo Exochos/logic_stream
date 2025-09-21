@@ -1,17 +1,11 @@
-import type { NextConfig } from 'next';
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
     ppr: false,
     clientSegmentCache: true,
-    nodeMiddleware: true
-  }
+    nodeMiddleware: true,
+  },
 };
 
 export default nextConfig;
-
-module.exports = {
-  experimental : {
-    missingSuspenseWithCSRBailout : false,
-  },
-}
